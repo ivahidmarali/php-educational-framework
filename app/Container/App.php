@@ -4,6 +4,7 @@ namespace App\Container;
 
 use App\Controllers\ContactUsController;
 use App\Routing\Router;
+use DI\Container;
 
 class App
 {
@@ -18,9 +19,14 @@ class App
      */
     public static $singletons = [];
 
+    /**
+     * @var Container
+     */
+    protected $container;
+
     public function __construct()
     {
-
+        $this->container = new Container();
     }
 
     /**
@@ -64,6 +70,6 @@ class App
      */
     protected function makeInstance(string $className, $args = [])
     {
-        return new $className(...$args);
+        return $this->container->make($className,$args);
     }
 }
