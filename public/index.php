@@ -1,6 +1,6 @@
 <?php
-use App\Main;
+use App\Routing\Kernel;
 
 require '../vendor/autoload.php';
 
-new Main();
+new Kernel();
