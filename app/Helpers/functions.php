@@ -9,6 +9,7 @@ function app(){
 }
 
 /**
+ * Get a singleton object with service container
  * @param string $classname
  * @param mixed $args
  * @return object
@@ -18,10 +19,11 @@ function singleton(string $classname, $args = []){
 }
 
 /**
+ * Build a new object with service container
  * @param string $classname
  * @param mixed $args
  * @return object
  */
-function object(string $classname, $args = []){
+function build(string $classname, $args = []){
     return \app()->getObject($classname, $args);
 }
